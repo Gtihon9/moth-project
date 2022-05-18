@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<head>
+    <title>MOTH</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/login_register.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Koulen&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source Sans Pro&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="page-header">
+        {% if user.is_authenticated %}
+            <p class="top-menu">Hello {{ user.username }}
+                {% if user.is_superuser %}
+                    <b>(root)</b>
+                {% endif %}
+                <small>(<a href="{% url 'logout' %}">Log out</a>)</small>
+            </p>
+        {% else %}
+            <a href="{% url 'login' %}" class="top-menu">Login</a>
+            <a href="{% url 'register' %}" class="top-menu">Register</a>
+        {% endif %}
+        <h1><a href="/">Moth</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

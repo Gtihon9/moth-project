@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+    <h1>Create an account</h1>
+    <h4>Please, sign up using the following form:</h4>
+    <form action="." method="post">
+        <table>
+            <tr>
+                <td class="username-text">{{ user_form.username.label_tag }}</td>
+                <td class="username-field">{{ user_form.username }}</td>
+            </tr>
+            <tr>
+                <td class="email-text">{{ user_form.email.label_tag }}</td>
+                <td class="email-field">{{ user_form.email }}</td>
+            </tr>
+            <tr>
+                <td class="password-text">{{ user_form.password.label_tag }}</td>
+                <td class="password-field">{{user_form.password }}</td>
+            </tr>
+            <tr>
+                <td class="password-text">{{ user_form.password2.label_tag }}</td>
+                <td class="password-field">{{user_form.password2 }}</td>
+            </tr>
+        </table>
+        {% csrf_token %}
+        <p><input class="submit-button" type="submit" value="Create my account"></p>
+    </form>
+{% endblock %}
