@@ -12,11 +12,15 @@
 <body>
     <div class="page-header">
         {% if user.is_authenticated %}
-            <p class="top-menu">Hello {{ user.username }}
+            <p class="top-menu">Hello <a href="{% url 'getuserprofile' username=user.username %}">{{ user.username }}</a>
                 {% if user.is_superuser %}
                     <b>(root)</b>
                 {% endif %}
-                <small>(<a href="{% url 'logout' %}">Log out</a>)</small>
+                <small>
+                    <button class="logout-button">
+                        <a href="{% url 'logout' %}">Log out</a>
+                    </button>
+                </small>
             </p>
         {% else %}
             <a href="{% url 'login' %}" class="top-menu">Login</a>
