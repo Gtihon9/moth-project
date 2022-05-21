@@ -1,0 +1,32 @@
+.page-header {
+text-align: center;
+border-bottom: 0px;
+}
+
+.MOth{
+font-size: 160px;
+color: #f9f8ff63;
+font-weight: 600;
+
+}
+
+.top-menu{
+font-size:30px;
+}
+
+.back-video{
+width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-1;
+}
+
+@media (max-aspect-ratio: 4/3){
+    .back-video{
+        width: auto;
+        height: auto;
+    }
+}

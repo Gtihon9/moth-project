@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <h1>Profile</h1>
+        <h1 class="Profile">Profile</h1>
         {% csrf_token %}
             <p >{{ User.username }}</p>
             <p >{{ User.email}}</p>

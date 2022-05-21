@@ -11,6 +11,9 @@
 </head>
 <body>
     <div class="page-header">
+    <video autoplay loop muted plays-inline class="back-video">
+        <source src="static/video.mp4" type="video/mp4">
+    </video>
         {% if user.is_authenticated %}
             <p class="top-menu">Hello <a href="{% url 'getuserprofile' username=user.username %}">{{ user.username }}</a>
                 {% if user.is_superuser %}
@@ -23,11 +26,12 @@
                 </small>
             </p>
         {% else %}
-            <a href="{% url 'login' %}" class="top-menu">Login</a>
-            <a href="{% url 'register' %}" class="top-menu">Register</a>
+            <a href="{% url 'login' %}" class="top-menu" style="color: #f9f8ff63">Login</a>
+            <a href="{% url 'register' %}" class="top-menu" style="color: #f9f8ff63">Register</a>
         {% endif %}
-        <h1><a href="/">Moth</a></h1>
+        <h1 class="MOth"><a href="/" style="color: #f9f8ff63">Moth</a></h1>
     </div>
+
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
